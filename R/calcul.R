@@ -12,10 +12,10 @@ calcul_total_moyen_par_monument <- function(data) {
   resultat <- data |>
     dplyr::group_by(nom_etablissement) |>
     dplyr::summarise(
-      total_moyen = mean(total, na.rm = TRUE)
+      total_moyen = mean(total, na.rm = TRUE),
+      .groups = "drop"
     ) |>
-    dplyr::arrange(desc(total_moyen)) |>
-    dplyr::ungroup()
+    dplyr::arrange(dplyr::desc(total_moyen))
 
   return(resultat)
 }

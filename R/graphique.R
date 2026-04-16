@@ -30,9 +30,9 @@ plot_total_moyen_par_monument <- function(data, top_n = 10) {
     ggplot2::geom_col(fill = "steelblue") +
     ggplot2::coord_flip() +
     ggplot2::labs(
-      title = "Fréquentation moyenne des monuments (Top 10)",
+      title = "Frequentation moyenne des monuments (Top 10)",
       x = "Monument",
-      y = "Fréquentation moyenne"
+      y = "Frequentation moyenne"
     ) +
     ggplot2::theme_minimal()
 }

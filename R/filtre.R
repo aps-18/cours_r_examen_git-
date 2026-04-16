@@ -12,6 +12,3 @@ filtrer_monument <- function(data, monument) {
   data[data$nom_etablissement == monument, ]
 }
 
-filtrer_monument <- function(data, monument) {
-  data[data$nom_etablissement == monument, ]
-}
