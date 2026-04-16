@@ -4,4 +4,8 @@ url_jeu_de_donnees <- "https://data.culture.gouv.fr/explore/dataset/frequentatio
 
 df <- read_csv2("data-raw/frequentation-des-monuments-nationaux.csv")
 
+df$Total <- as.numeric(df$Total)
+df$Gratuit <- as.numeric(df$Gratuit)
+df$Payant <- as.numeric(df$Payant)
+
 usethis::use_data(df, overwrite = TRUE)
