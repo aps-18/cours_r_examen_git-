@@ -1,9 +1,10 @@
 Package: amelie.pires.m1ecap
-Title: What the Package Does (One Line, Title Case)
+Title: Analyse de la frequentation des monuments nationaux
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+    person("Amelie", "Pires", email = "amelie.pires18@gmail.com", role = c("aut", "cre"))
+Description: Ce package permet d analyser la frequentation des monuments nationaux en France. 
+    Il propose des fonctions pour filtrer les donnees, calculer des indicateurs et produire des graphiques.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -13,4 +14,9 @@ Depends:
 LazyData: true
 Imports: 
     dplyr,
-    ggplot2
+    ggplot2,
+    rlang
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

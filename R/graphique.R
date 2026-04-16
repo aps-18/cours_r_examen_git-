@@ -1,30 +1,28 @@
-#' Représenter la fréquentation moyenne des monuments
+#' Representation de la frequentation moyenne des monuments
 #'
-#' Cette fonction produit un graphique des monuments les plus fréquentés
-#' selon leur fréquentation moyenne.
+#' Cette fonction produit un graphique des monuments les plus frequentes.
 #'
-#' @param data Un data frame contenant les données de fréquentation.
-#' @param top_n Le nombre de monuments à afficher.
-#'
+#' @param data Un data frame contenant les donnees.
+#' @param top_n Le nombre de monuments a afficher.
+#' @importFrom rlang .data
 #' @return Un graphique ggplot2.
 #' @export
 
-library(ggplot2)
 plot_total_moyen_par_monument <- function(data, top_n = 10) {
-
   df_resume <- data |>
-    dplyr::group_by(nom_etablissement) |>
+    dplyr::group_by(.data$nom_etablissement) |>
     dplyr::summarise(
-      total_moyen = mean(total, na.rm = TRUE)
+      total_moyen = mean(.data$total, na.rm = TRUE),
+      .groups = "drop"
     ) |>
-    dplyr::arrange(desc(total_moyen)) |>
-    head(top_n)
+    dplyr::arrange(dplyr::desc(.data$total_moyen)) |>
+    utils::head(top_n)
 
   ggplot2::ggplot(
     df_resume,
     ggplot2::aes(
-      x = reorder(nom_etablissement, total_moyen),
-      y = total_moyen
+      x = stats::reorder(.data$nom_etablissement, .data$total_moyen),
+      y = .data$total_moyen
     )
   ) +
     ggplot2::geom_col(fill = "steelblue") +

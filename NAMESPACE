@@ -2,3 +2,5 @@
 
 export(calcul_total_moyen_par_monument)
 export(filtrer_monument)
+export(plot_total_moyen_par_monument)
+importFrom(rlang,.data)
