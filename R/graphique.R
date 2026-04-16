@@ -1,3 +1,14 @@
+#' Représenter la fréquentation moyenne des monuments
+#'
+#' Cette fonction produit un graphique des monuments les plus fréquentés
+#' selon leur fréquentation moyenne.
+#'
+#' @param data Un data frame contenant les données de fréquentation.
+#' @param top_n Le nombre de monuments à afficher.
+#'
+#' @return Un graphique ggplot2.
+#' @export
+
 library(ggplot2)
 plot_total_moyen_par_monument <- function(data, top_n = 10) {
 
