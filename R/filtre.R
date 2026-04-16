@@ -9,9 +9,9 @@
 #' @export
 
 filtrer_monument <- function(data, monument) {
-  data[data$`Nom de l'établissement` == monument, ]
+  data[data$nom_etablissement == monument, ]
 }
 
 filtrer_monument <- function(data, monument) {
-  data[data$`Nom de l'établissement` == monument, ]
+  data[data$nom_etablissement == monument, ]
 }

@@ -13,16 +13,20 @@ library(ggplot2)
 plot_total_moyen_par_monument <- function(data, top_n = 10) {
 
   df_resume <- data |>
-    dplyr::group_by(`Nom de l'établissement`) |>
+    dplyr::group_by(nom_etablissement) |>
     dplyr::summarise(
-      total_moyen = mean(`Total`, na.rm = TRUE)
+      total_moyen = mean(total, na.rm = TRUE)
     ) |>
     dplyr::arrange(desc(total_moyen)) |>
     head(top_n)
 
-  ggplot2::ggplot(df_resume,
-                  ggplot2::aes(x = reorder(`Nom de l'établissement`, total_moyen),
-                               y = total_moyen)) +
+  ggplot2::ggplot(
+    df_resume,
+    ggplot2::aes(
+      x = reorder(nom_etablissement, total_moyen),
+      y = total_moyen
+    )
+  ) +
     ggplot2::geom_col(fill = "steelblue") +
     ggplot2::coord_flip() +
     ggplot2::labs(

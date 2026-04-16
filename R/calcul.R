@@ -10,11 +10,11 @@
 calcul_total_moyen_par_monument <- function(data) {
 
   resultat <- data |>
-    dplyr::group_by(`Nom de l'établissement`) |>
+    dplyr::group_by(nom_etablissement) |>
     dplyr::summarise(
-      `Fréquentation moyenne` = mean(`Total`, na.rm = TRUE)
+      total_moyen = mean(total, na.rm = TRUE)
     ) |>
-    dplyr::arrange(desc(`Fréquentation moyenne`)) |>
+    dplyr::arrange(desc(total_moyen)) |>
     dplyr::ungroup()
 
   return(resultat)
