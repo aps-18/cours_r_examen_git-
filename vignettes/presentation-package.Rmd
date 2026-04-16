@@ -1,0 +1,48 @@
+---
+title: "Presentation du package"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Presentation du package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+```
+
+# Objectif
+
+Ce document presente le package amelie.pires.m1ecap et quelques exemples
+d utilisation.
+
+# Chargement du package
+
+```{r}
+library(amelie.pires.m1ecap)
+```
+
+# Apercu des donnees
+
+```{r}
+head(df)
+```
+
+# Exemple de filtre
+
+```{r}
+filtrer_monument(df, "Arc de Triomphe")
+```
+
+# Exemple de calcul groupe
+
+```{r}
+calcul_total_moyen_par_monument(df)
+```
+
+# Exemple de graphique
+
+```{r, fig.width=10, fig.height=6}
+plot_total_moyen_par_monument(df, top_n = 10)
+```
+
